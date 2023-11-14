@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+//use App\Http\Controllers\UserController;
+use App\Http\Controllers\PersonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Welcome', [UserController::class,'welcome']);
+//Route::get('/Welcome', [UserController::class,'welcome']);
+
+//Route::get("person/{name?}", [PersonController::class, "getPerson"])->whereAlpha("name");
+Route::get("person/{name?}", [PersonController::class, "getPerson"])->whereAlpha("name");
+//Route::get("person/{name?}", [PersonController::class, "getPerson"])->whereAlphaNumeric("name");
+
+//Route::get("personid/{id?}", [PersonController::class, "getPersonById"])->whereNumber("id");
+
+//person/john/account/123
+Route::get("personid/{name}/account/{accountId}", [PersonController::class, "getPersonById"])->whereNumber("id");
